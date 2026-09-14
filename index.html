@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cricket Boy Academy | Varanasi</title>
+    <!-- Links to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-copy">
+            <div class="logo-container">
+                <!-- Replace src with your actual logo image path -->
+                <img src="images/logo.png" alt="The Cricket Boy Academy Logo" class="logo" onerror="this.style.display='none'">
+                <h1>The Cricket Boy Academy</h1>
+            </div>
+            <div class="hero-content">
+                <h2>Turning Today's Talent into Tomorrow's Champions.</h2>
+                <p>Elite cricket coaching, technical mastery, and safe residential facilities for boys and girls of all ages in Varanasi.</p>
+                <a href="https://wa.link/hxo87y" class="btn btn-yellow">Click for Inquiry</a>
+            </div>
+        </div>
+
+        <div class="hero-slider" aria-label="Academy image slider">
+            <div class="slides">
+                <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=1200&q=80" alt="Cricket players training" class="slide active">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1200&q=80" alt="Player practicing batting" class="slide">
+                <img src="https://images.unsplash.com/photo-1604908554102-5fef6a70a408?auto=format&fit=crop&w=1200&q=80" alt="Cricket coaching session" class="slide">
+                <img src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?auto=format&fit=crop&w=1200&q=80" alt="Young athletes on the field" class="slide">
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-btn prev" aria-label="Previous slide">&#10094;</button>
+                <div class="slider-dots" aria-label="Slider navigation">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                </div>
+                <button class="slider-btn next" aria-label="Next slide">&#10095;</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- DIRECTOR SECTION -->
+    <section class="coach-section">
+        <h2>Train Under a BCCI Level 2 Coach</h2>
+        <div class="card">
+            <!-- Optional: Replace src with a photo of Ranjeet Singh -->
+            <img src="images/coach.png" alt="Ranjeet Singh" class="coach-img" onerror="this.style.display='none'">
+            <h3>Ranjeet Singh</h3>
+            <p><strong>Academy Director</strong></p>
+            <p>With a focus on building core fundamentals—from perfect stance balance and head position to advanced match readiness—our tailored programs ensure your child gets the exact technical guidance they need to succeed.</p>
+        </div>
+    </section>
+
+    <!-- FACILITIES SECTION -->
+    <section class="facilities-section">
+        <h2>Comprehensive Facilities</h2>
+        <div class="card">
+            <h3>Hostel & Nutritious Food</h3>
+            <p>A safe, secure "home away from home" for out-of-town students. We offer dedicated residential accommodations for boys and girls, complete with high-quality, athlete-focused meals to support rigorous daily training.</p>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION (YouTube Embed) -->
+    <section class="video-section">
+        <h2>Watch Us In Action</h2>
+        <p>Check out our training methodologies and animated coaching shorts.</p>
+        <div class="video-wrapper">
+            <!-- Replace the src URL with your actual YouTube embed link -->
+<iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
+    </section>
+
+    <!-- FOOTER / MAP SECTION -->
+    <footer class="contact-section">
+        <h2>Visit The Academy</h2>
+        <p class="address">Tilamapur, Varanasi, Ashapur Road, Tilamapur, Sarnath-221007, Uttar Pradesh</p>
+        <div class="map-wrapper">
+            <iframe src="https://maps.google.com/maps?q=Tilamapur,%20Varanasi,%20Ashapur%20Road,%20Tilamapur,%20Sarnath-221007,%20Uttar%20Pradesh&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <!-- Extra space at the bottom so the sticky bar doesn't cover content -->
+        <div style="height: 80px;"></div>
+    </footer>
+
+    <!-- STICKY MOBILE CONTACT BAR -->
+    <div class="sticky-contact-bar">
+        <a href="tel:+918799231799" class="sticky-btn btn-blue">Call Now</a>
+        <a href="https://wa.link/hxo87y" class="sticky-btn btn-yellow">WhatsApp Us</a>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                currentSlide = Number(dot.dataset.slide);
+                showSlide(currentSlide);
+            });
+        });
+
+        setInterval(nextSlide, 3000);
+    </script>
+
+</body>
+</html>
